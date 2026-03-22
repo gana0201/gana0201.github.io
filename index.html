@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee GaEun Portfolio</title>
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+            --font-display: "Space Grotesk", sans-serif;
+        }
+
+        @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                @apply bg-[#0a0510] text-white font-sans overflow-x-hidden;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-glow {
+            filter: blur(120px);
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        .animate-float {
+            animation: float 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-purple-900/20 bg-glow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-900/20 bg-glow"></div>
+        <div class="absolute top-[20%] right-[10%] w-[20%] h-[20%] rounded-full bg-blue-900/10 bg-glow"></div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center px-4">
+        <div class="space-y-4 reveal" id="hero-content">
+            <h1 class="text-7xl md:text-9xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-300/50">
+                PORTFOLIO
+            </h1>
+            <p class="text-lg md:text-xl font-light tracking-[0.3em] uppercase text-purple-200/70">
+                Lee GaEun
+            </p>
+        </div>
+
+        <div class="absolute bottom-10 flex flex-col items-center gap-4 opacity-0 transition-opacity duration-1000 delay-1000" id="scroll-indicator">
+            <div class="w-[1px] h-16 bg-gradient-to-b from-transparent via-purple-400/50 to-transparent"></div>
+            <div class="animate-float">
+                <i data-lucide="chevron-down" class="text-purple-300/50 w-6 h-6"></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-6 space-y-32 pb-32">
+        <!-- 2. Profile Section -->
+        <section id="profile" class="pt-20 reveal">
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3 space-y-8">
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold leading-tight">
+                        안녕하세요! <br>
+                        <span class="text-purple-400">문제 해결을 즐기는</span> <br>
+                        앱/웹 개발자 이가은입니다.
+                    </h2>
+                    
+                    <div class="grid gap-6">
+                        <div class="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-purple-400 mt-1"></i>
+                            <div>
+                                <h3 class="font-medium text-lg">학력</h3>
+                                <p class="text-white/60">한라대학교 컴퓨터공학과 (2027년 졸업 예정)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                            <i data-lucide="users" class="w-6 h-6 text-purple-400 mt-1"></i>
+                            <div>
+                                <h3 class="font-medium text-lg">활동</h3>
+                                <p class="text-white/60">컴퓨터공학과 동아리 게임메타V 회장 (2024~2025)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                            <i data-lucide="database" class="w-6 h-6 text-purple-400 mt-1"></i>
+                            <div>
+                                <h3 class="font-medium text-lg">관심 분야</h3>
+                                <p class="text-white/60">앱/웹 서비스 아키텍처, 데이터베이스 시스템</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 space-y-6">
+                    <div class="aspect-square rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-white/10 flex items-center justify-center relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[url('https://picsum.photos/seed/moon/600/600')] opacity-20 grayscale group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="relative z-10 text-center space-y-2">
+                            <div class="w-24 h-24 rounded-full bg-white/10 backdrop-blur-md mx-auto flex items-center justify-center border border-white/20">
+                                <span class="text-4xl">🌙</span>
+                            </div>
+                            <p class="text-sm font-light text-purple-200/50 uppercase tracking-widest">Dreamer & Developer</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <a href="mailto:155277541gaeun@gmail.com" class="flex items-center justify-center gap-2 py-4 rounded-xl bg-purple-600 hover:bg-purple-500 transition-colors font-medium">
+                            <i data-lucide="mail" class="w-4 h-4"></i> Email Me
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors font-medium">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Tech Stack Section -->
+        <section id="tech" class="space-y-12 reveal">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-display font-bold">Tech Stack</h2>
+                <div class="w-12 h-1 bg-purple-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="tech-grid">
+                <!-- Tech items will be injected by JS -->
+            </div>
+        </section>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="space-y-12 reveal">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-display font-bold">Projects</h2>
+                <div class="w-12 h-1 bg-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
+                <!-- Project items will be injected by JS -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center text-white/30 text-sm">
+        <p>© 2026 Lee GaEun. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Tech Stack Data
+        const techStack = [
+            { name: "Next.js", icon: "layers" },
+            { name: "PostgreSQL", icon: "database" },
+            { name: "Python", icon: "code-2" },
+            { name: "C / C++", icon: "code-2" },
+            { name: "Java", icon: "code-2" },
+        ];
+
+        // Projects Data
+        const projects = [
+            {
+                title: "Clotho's Thread",
+                period: "2024.03 - Present",
+                tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
+                description: "졸업작품으로 진행 중인 타로 테마의 앱/웹 서비스입니다. 운명의 실타래를 풀어가는 신비로운 사용자 경험을 제공합니다.",
+                image: "https://picsum.photos/seed/tarot/800/450",
+                link: "#"
+            },
+            {
+                title: "spiriter게임 기획",
+                period: "2023.09 - 2023.12",
+                tech: ["Unity", "C#", "Game Design"],
+                description: "Unity를 활용한 3D 횡스크롤 어드벤쳐 게임 기획 (레벨디자인으로 참여)",
+                image: "https://picsum.photos/seed/spiriter/800/450",
+                link: "https://gana201.tistory.com/"
+            }
+        ];
+
+        // Inject Tech Stack
+        const techGrid = document.getElementById('tech-grid');
+        techStack.forEach(tech => {
+            const div = document.createElement('div');
+            div.className = 'p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col items-center gap-3 group transition-all hover:border-purple-500/50 hover:-translate-y-1';
+            div.innerHTML = `
+                <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                    <i data-lucide="${tech.icon}" class="w-5 h-5"></i>
+                </div>
+                <span class="font-medium text-white/80">${tech.name}</span>
+            `;
+            techGrid.appendChild(div);
+        });
+
+        // Inject Projects
+        const projectsGrid = document.getElementById('projects-grid');
+        projects.forEach(project => {
+            const a = document.createElement('a');
+            a.href = project.link;
+            a.target = project.link.startsWith('http') ? "_blank" : "_self";
+            a.rel = "noopener noreferrer";
+            a.className = "group block rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-purple-500/30 transition-all cursor-pointer";
+            a.innerHTML = `
+                <div class="aspect-video relative overflow-hidden">
+                    <img src="${project.image}" alt="${project.title}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0510] to-transparent opacity-60"></div>
+                    <div class="absolute bottom-4 left-6">
+                        <span class="text-xs font-medium px-3 py-1 rounded-full bg-purple-500/80 backdrop-blur-md">${project.period}</span>
+                    </div>
+                </div>
+                <div class="p-8 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-display font-bold group-hover:text-purple-400 transition-colors">${project.title}</h3>
+                        <i data-lucide="external-link" class="w-5 h-5 text-white/40 group-hover:text-purple-400 transition-colors"></i>
+                    </div>
+                    <p class="text-white/60 leading-relaxed">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        ${project.tech.map(t => `<span class="text-xs font-mono text-purple-300/70 bg-purple-500/10 px-2 py-1 rounded border border-purple-500/20">${t}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            projectsGrid.appendChild(a);
+        });
+
+        // Re-run Lucide for injected icons
+        lucide.createIcons();
+
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Hero Animation Trigger
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('hero-content').classList.add('active');
+                document.getElementById('scroll-indicator').classList.remove('opacity-0');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
+
