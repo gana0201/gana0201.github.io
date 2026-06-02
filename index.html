@@ -84,7 +84,7 @@
                     <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-900/40 border border-purple-500/30 backdrop-blur-xl shadow-2xl shadow-purple-500/10">
                         <p class="text-white/90 leading-relaxed text-xl md:text-2xl font-light">
                             "웹과 DB에 대해 깊은 관심을 가지고 끊임없이 탐구하며, <br class="hidden md:block">
-                            이자나 성실한 태도로 최선의 결과를 만들어내는 개발자 이가은입니다."
+                            언제나 성실한 태도로 최선의 결과를 만들어내는 개발자 이가은입니다."
                         </p>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="tech-grid">
-                </div>
+            </div>
         </section>
 
         <section id="projects" class="space-y-12 reveal">
@@ -171,7 +171,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
-                </div>
+            </div>
         </section>
 
         <section id="achievements" class="space-y-12 reveal">
@@ -287,14 +287,22 @@
             techGrid.appendChild(div);
         });
 
-        // Inject Projects
+        // Inject Projects (조건문을 통해 링크 유효성 검사 추가)
         const projectsGrid = document.getElementById('projects-grid');
         projects.forEach(project => {
+            // 조건문 검사: link가 존재하고, 데이터 타입이 string이며, http로 시작할 때만 true
+            const hasLink = project.link && typeof project.link === 'string' && project.link.startsWith('http');
+            
+            const targetAttr = hasLink ? '_blank' : '_self';
+            const linkHref = hasLink ? project.link : 'javascript:void(0);';
+            const pointerClass = hasLink ? 'cursor-pointer' : 'cursor-default';
+            const linkIcon = hasLink ? `<i data-lucide="external-link" class="w-5 h-5 text-white/40 group-hover:text-purple-400 transition-colors"></i>` : '';
+
             const a = document.createElement('a');
-            a.href = project.link;
-            a.target = project.link.startsWith('http') ? "_blank" : "_self";
-            a.rel = "noopener noreferrer";
-            a.className = "group block rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-purple-500/30 transition-all cursor-pointer";
+            a.href = linkHref;
+            a.target = targetAttr;
+            if (hasLink) a.rel = "noopener noreferrer";
+            a.className = `group block rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-purple-500/30 transition-all ${pointerClass}`;
             a.innerHTML = `
                 <div class="p-6 sm:p-8 space-y-4">
                     <div class="flex justify-between items-start">
@@ -304,7 +312,7 @@
                             </span>
                             <h3 class="text-xl sm:text-2xl font-display font-bold group-hover:text-purple-400 transition-colors">${project.title}</h3>
                         </div>
-                        <i data-lucide="external-link" class="w-5 h-5 text-white/40 group-hover:text-purple-400 transition-colors"></i>
+                        ${linkIcon}
                     </div>
                     <p class="text-white/60 leading-relaxed">${project.description}</p>
                     <div class="flex flex-wrap gap-2 pt-2">
