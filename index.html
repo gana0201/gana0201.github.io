@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lee GaEun Portfolio</title>
-    <!-- Tailwind CSS v4 CDN -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style type="text/tailwindcss">
         @theme {
@@ -52,14 +49,12 @@
     </style>
 </head>
 <body>
-    <!-- Background Elements -->
     <div class="fixed inset-0 -z-10">
         <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-purple-900/20 bg-glow"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-900/20 bg-glow"></div>
         <div class="absolute top-[20%] right-[10%] w-[20%] h-[20%] rounded-full bg-blue-900/10 bg-glow"></div>
     </div>
 
-    <!-- 1. Hero Section -->
     <section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center px-4">
         <div class="space-y-2 reveal" id="hero-content">
             <p class="text-lg md:text-2xl font-light tracking-[0.2em] text-purple-300/80 mb-4">
@@ -79,20 +74,17 @@
     </section>
 
     <div class="max-w-5xl mx-auto px-6 space-y-32 pb-32">
-        <!-- 2. Profile Section -->
         <section id="profile" class="pt-20 reveal">
             <div class="space-y-12">
-                <!-- Intro & Wide Card -->
                 <div class="space-y-8">
                     <h2 class="text-xl md:text-2xl font-display font-semibold leading-tight whitespace-nowrap tracking-wide">
                         안녕하세요! <span class="text-purple-400">성실함으로 신뢰를 쌓는</span> 이가은입니다.
                     </h2>
                     
-                    <!-- Self Intro Card - Extended Width -->
                     <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-900/40 border border-purple-500/30 backdrop-blur-xl shadow-2xl shadow-purple-500/10">
                         <p class="text-white/90 leading-relaxed text-xl md:text-2xl font-light">
                             "웹과 DB에 대해 깊은 관심을 가지고 끊임없이 탐구하며, <br class="hidden md:block">
-                            언제나 성실한 태도로 최선의 결과를 만들어내는 개발자 이가은입니다."
+                            이자나 성실한 태도로 최선의 결과를 만들어내는 개발자 이가은입니다."
                         </p>
                     </div>
                 </div>
@@ -156,208 +148,3 @@
                                     <i data-lucide="github" class="w-4 h-4"></i> GitHub
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Tech Stack Section -->
-        <section id="tech" class="space-y-12 reveal">
-            <div class="text-center space-y-2">
-                <h2 class="text-3xl font-display font-bold">Tech Stack</h2>
-                <div class="w-12 h-1 bg-purple-500 mx-auto rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="tech-grid">
-                <!-- Tech items will be injected by JS -->
-            </div>
-        </section>
-
-        <!-- 4. Projects Section -->
-        <section id="projects" class="space-y-12 reveal">
-            <div class="text-center space-y-2">
-                <h2 class="text-3xl font-display font-bold">Experience & Projects</h2>
-                <div class="w-12 h-1 bg-purple-500 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
-                <!-- Project items will be injected by JS -->
-            </div>
-        </section>
-
-        <!-- 5. Awards & Certifications Section -->
-        <section id="achievements" class="space-y-12 reveal">
-            <div class="text-center space-y-2">
-                <h2 class="text-3xl font-display font-bold">Awards & Certifications</h2>
-                <div class="w-12 h-1 bg-purple-500 mx-auto rounded-full"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-display font-semibold text-purple-400 flex items-center gap-2">
-                        <i data-lucide="award" class="w-5 h-5"></i> Awards
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                            <p class="text-xs text-purple-300 font-mono mb-1">2024.10.14</p>
-                            <p class="font-medium">창업아이디어경진대회 우수상 (밥친구)</p>
-                        </div>
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                            <p class="text-xs text-purple-300 font-mono mb-1">2024.12.12</p>
-                            <p class="font-medium">창업아이디어경진대회 왕중왕전 참여</p>
-                        </div>
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                            <p class="text-xs text-purple-300 font-mono mb-1">Hackathon</p>
-                            <p class="font-medium">2024 강원 ICT 이노베이션스퀘어 AI 해커톤 참가</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-display font-semibold text-purple-400 flex items-center gap-2">
-                        <i data-lucide="file-check" class="w-5 h-5"></i> Certifications
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex justify-between items-center group">
-                            <p class="font-medium">소프트웨어교육지도사 1급</p>
-                            <span class="text-[10px] px-2 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 font-bold uppercase">Certified</span>
-                        </div>
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex justify-between items-center">
-                            <p class="font-medium">정보처리기사</p>
-                            <span class="text-[10px] px-2 py-1 rounded bg-white/10 text-white/50 border border-white/5 font-bold uppercase">Preparing</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 text-center text-white/30 text-sm">
-        <p>© 2026 Lee GaEun. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Tech Stack Data
-        const techStack = [
-            { name: "Git", icon: "git-branch" },
-            { name: "Next.js", icon: "layers" },
-            { name: "Python", icon: "code-2" },
-            { name: "C / C++", icon: "code" },
-            { name: "PostgreSQL", icon: "database" },
-            { name: "Java", icon: "coffee" },
-        ];
-
-        // Projects Data
-        const projects = [
-            {
-                title: "산학협력프로젝트 길동무(Road-mate)",
-                period: "2026. - Present",
-                tech: ["Project", "Networking"],
-                description: "산학협력의 일환으로 진행 중인 Road-mate 프로젝트입니다.",
-                link: "#"
-            },
-            {
-                title: "산학협력프로젝트 Trip.Tag",
-                period: "2025.06 - 2025.12",
-                tech: ["Collaboration", "Database"],
-                description: "태그를 기반으로 한 여행 기록 및 공유 산학협력 프로젝트입니다.",
-                link: "#"
-            },
-            {
-                title: "홍천중학교 여름캠프 보조강사",
-                period: "2025.07.08",
-                tech: ["Education", "Python"],
-                description: "파이썬 기초 언어 교육 지원 및 실무 보조 강사로 참여했습니다.",
-                link: "#"
-            },
-            {
-                title: "Clotho's Thread (졸업작품)",
-                period: "2025.03 - Present",
-                tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
-                description: "그리스 신화의 운명의 여신 클로토에서 영감을 얻은 타로 테마 서비스입니다. 사용자가 직접 운명의 실타래를 풀어가는 듯한 신비롭고 몰입감 있는 웹/앱 사용자 경험(UX)을 구축하는 데 집중하고 있습니다.",
-                link: "#"
-            },
-            {
-                title: "spiriter게임 기획",
-                period: "2023.09 - 2023.12",
-                tech: ["Unity", "Game Design"],
-                description: "Unity를 활용한 3D 횡스크롤 어드벤쳐 게임 기획 (레벨디자인 참여)",
-                link: "https://gana201.tistory.com/"
-            }
-        ];
-
-        // Inject Tech Stack
-        const techGrid = document.getElementById('tech-grid');
-        techStack.forEach(tech => {
-            const div = document.createElement('div');
-            div.className = 'p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col items-center gap-3 group transition-all hover:border-purple-500/50 hover:-translate-y-1';
-            div.innerHTML = `
-                <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                    <i data-lucide="${tech.icon}" class="w-5 h-5"></i>
-                </div>
-                <span class="font-medium text-white/80">${tech.name}</span>
-            `;
-            techGrid.appendChild(div);
-        });
-
-        // Inject Projects
-        const projectsGrid = document.getElementById('projects-grid');
-        projects.forEach(project => {
-            const a = document.createElement('a');
-            a.href = project.link;
-            a.target = project.link.startsWith('http') ? "_blank" : "_self";
-            a.rel = "noopener noreferrer";
-            a.className = "group block rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-purple-500/30 transition-all cursor-pointer";
-            a.innerHTML = `
-                <div class="p-6 sm:p-8 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <div class="space-y-1">
-                            <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">
-                                ${project.period}
-                            </span>
-                            <h3 class="text-xl sm:text-2xl font-display font-bold group-hover:text-purple-400 transition-colors">${project.title}</h3>
-                        </div>
-                        <i data-lucide="external-link" class="w-5 h-5 text-white/40 group-hover:text-purple-400 transition-colors"></i>
-                    </div>
-                    <p class="text-white/60 leading-relaxed">${project.description}</p>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        ${project.tech.map(t => `<span class="text-xs font-mono text-purple-300/70 bg-purple-500/10 px-2 py-1 rounded border border-purple-500/20">${t}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-            projectsGrid.appendChild(a);
-        });
-
-        // Re-run Lucide for injected icons
-        lucide.createIcons();
-
-        // Reveal Animations on Scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Hero Animation Trigger
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.getElementById('hero-content').classList.add('active');
-                document.getElementById('scroll-indicator').classList.remove('opacity-0');
-            }, 100);
-        });
-    </script>
-</body>
-</html>
-
