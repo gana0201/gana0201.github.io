@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 2026년 달력 과제</title>
+    <style>
+        .calendar-box {
+            width: 350px;
+            margin: 50px auto;
+            border: 2px solid #333;
+            padding: 15px;
+            background-color: #f9f9f9;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+        .nav-btn:hover {
+            color: #007bff;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        .day-of-week {
+            font-weight: bold;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .date-cell {
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+        }
+
+        .day-of-week:nth-child(7n+1), .date-cell:nth-child(7n+1) { color: red; }  /* 일요일 */
+        .day-of-week:nth-child(7n), .date-cell:nth-child(7n) { color: blue; }    /* 토요일 */
+    </style>
+
+    <script>
+        let currentYear = 2026;
+        let currentMonth = 5;
+
+        window.onload = function() {
+            renderCalendar(currentYear, currentMonth);
+        };
+
+        function renderCalendar(year, month) {
+            document.getElementById('calendarTitle').innerText = year + "년 " + (month + 1) + "월";
+            const gridContainer = document.getElementById('calendarGrid');
+            while (gridContainer.children.length > 7) {
+                gridContainer.removeChild(gridContainer.lastChild);
+            }
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'date-cell';
+                gridContainer.appendChild(emptyCell);
+            }
+
+            for (let date = 1; date <= lastDate; date++) {
+                const dateCell = document.createElement('div');
+                dateCell.className = 'date-cell';
+                dateCell.innerText = date;
+                gridContainer.appendChild(dateCell);
+            }
+        }
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar(currentYear, currentMonth);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar(currentYear, currentMonth);
+        }
+    </script>
+</head>
+<body>
+    <div class="calendar-box">
+        <div class="calendar-header">
+            <button class="nav-btn" onclick="prevMonth()">&lt;</button>
+            <span id="calendarTitle">2026년 6월</span>
+            <button class="nav-btn" onclick="nextMonth()">&gt;</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid">
+            <div class="day-of-week">일</div>
+            <div class="day-of-week">월</div>
+            <div class="day-of-week">화</div>
+            <div class="day-of-week">수</div>
+            <div class="day-of-week">목</div>
+            <div class="day-of-week">금</div>
+            <div class="day-of-week">토</div>
+        </div>
+    </div>
+</body>
+</html>
