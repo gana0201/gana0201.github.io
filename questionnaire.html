@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>소프트웨어 기술 선호에 관한 설문</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: darkmagenta;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        .description {
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .survey-box {
+            background-color: #cf95e8;
+            padding: 25px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .form-row {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .form-label {
+            width: 210px;
+            font-weight: bold;
+            color: #2c1654;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .form-inputs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        input[type="text"], select, textarea {
+            padding: 3px 5px;
+            font-size: 14px;
+            border: 1px solid #a9a9a9;
+            outline: none;
+        }
+        .dynamic-field {
+            display: none;
+            margin-top: 8px;
+            width: 100%;
+        }
+        .dynamic-field input {
+            width: 90%;
+        }
+        .char-counter {
+            font-size: 12px;
+            color: #555;
+            margin-top: 4px;
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const userNameInput = document.getElementById('userName');
+            const reasonTextarea = document.getElementById('reason');
+
+            // 이름 입력창 실시간 유효성 검사 (포커스가 빠져나갈 때)
+            userNameInput.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = 'red';
+                    this.style.backgroundColor = '#ffeeee';
+                } else {
+                    this.style.borderColor = '#a9a9a9';
+                }
+            });
+
+            //  왜 배우고 싶은지 이유, 실시간 글자 수 세기
+            reasonTextarea.addEventListener('input', function() {
+                const currentLength = this.value.length;
+                document.getElementById('charCount').innerText = currentLength;
+            });
+        };
+
+        function toggleEtcInput() {
+            const etcCheckbox = document.getElementById('techEtc');
+            const etcInputField = document.getElementById('etcInputField');
+
+            if (etcCheckbox.checked) {
+                etcInputField.style.display = 'block';
+            } else {
+                etcInputField.style.display = 'none';
+                document.getElementById('etcText').value = '';
+            }
+        }
+    </script>
+</head>
+
+<body style="margin: 20px">
+    <h1>설문지</h1>
+    <div class="description">소프트웨어 기술 및 학습 선호도에 대한 의견을 듣습니다.</div>
+    <hr style="margin-bottom: 20px">
+    <div class="survey-box">
+        <form id="surveyForm">
+            <div class="form-row">
+                <div class="form-label">이름</div>
+                <div class="form-inputs">
+                    <input type="text" id="userName" style="width: 150px;" placeholder="이름을 입력하세요">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">학년</div>
+                <div class="form-inputs">
+                    <label><input type="radio" name="grade" value="1" checked> 1학년</label>
+                    <label><input type="radio" name="grade" value="2"> 2학년</label>
+                    <label><input type="radio" name="grade" value="3"> 3학년</label>
+                    <label><input type="radio" name="grade" value="4"> 4학년</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">성별</div>
+                <div class="form-inputs">
+                    <label><input type="radio" name="gender" value="남" checked> 남</label>
+                    <label><input type="radio" name="gender" value="여"> 여</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">현재 소속</div>
+                <div class="form-inputs">
+                    <select id="belong">
+                        <option value="computer">컴퓨터공학과</option>
+                        <option value="software">IT소프트웨어학과</option>
+                        <option value="ai">AI정보보안학과</option>
+                        <option value="other">기타 전공</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">선호 개발 분야(다중 선택)</div>
+                <div class="form-inputs">
+                    <label><input type="checkbox" name="field" value="프론트엔드"> 프론트엔드</label>
+                    <label><input type="checkbox" name="field" value="백엔드"> 백엔드</label>
+                    <label><input type="checkbox" name="field" value="AI"> AI/데이터</label>
+                    <label><input type="checkbox" name="field" value="게임"> 게임</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">배우고 싶은 언어/프레임워크</div>
+                <div class="form-inputs">
+                    <label><input type="checkbox" name="tech" value="Java"> Java</label>
+                    <label><input type="checkbox" name="tech" value="Python"> Python</label>
+                    <label><input type="checkbox" name="tech" value="C++"> C++</label>
+                    <label><input type="checkbox" name="tech" value="기타" id="techEtc" onchange="toggleEtcInput()"> 기타</label>
+                    
+                    <div class="dynamic-field" id="etcInputField">
+                        <input type="text" id="etcText" placeholder="여기에 직접 입력해주세요.">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">왜 배우고 싶은지 이유</div>
+                <div class="form-inputs" style="width: 100%; flex-direction: column; align-items: flex-start;">
+                    <textarea id="reason" rows="5" style="width: 95%;" maxlength="100" placeholder="글을 남겨주세요"></textarea>
+                    <span class="char-counter">(<span id="charCount">0</span> / 100자)</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>웹 프로그래밍 갬블링 게임</title>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; margin: 20px; }
+        .number-container {
+            display: inline-flex;
+            border: 1px solid darkviolet;
+            padding: 5px 10px;
+            margin-bottom: 15px;
+        }
+        .num-box {
+            width: 50px;
+            height: 70px;
+            font-size: 50px;
+            font-style: italic;
+            color: darkviolet;
+            text-align: center;
+            line-height: 70px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        #resultMessage {
+            font-size: 16px;
+            font-style: italic;
+            cursor: pointer;
+        }
+        .fail { color: #8a2be2; }
+        .success { color: #ff1493; }
+    </style>
+    <script>
+        let clicked = [false, false, false];
+        let values = [0, 0, 0];
+
+        function play(index, element) {
+            if (clicked[0] && clicked[1] && clicked[2]) return;
+            
+            if (!clicked[index]) {
+                const randomNum = Math.floor(Math.random() * 3);
+                element.innerText = randomNum;
+                values[index] = randomNum;
+                clicked[index] = true;
+
+                if (clicked[0] && clicked[1] && clicked[2]) {
+                    checkResult();
+                }
+            }
+        }
+
+        function checkResult() {
+            const resultDiv = document.getElementById('resultMessage');
+            
+            if (values[0] === values[1] && values[1] === values[2]) {
+                resultDiv.innerText = "Success(click here to do again)";
+                resultDiv.className = "success";
+            } else {
+                resultDiv.innerText = "fail(click here to do again)";
+                resultDiv.className = "fail";
+            }
+        }
+
+        function resetGame() {
+            clicked = [false, false, false];
+            values = [0, 0, 0];
+
+            const numBoxes = document.querySelectorAll('.num-box');
+            numBoxes.forEach(box => box.innerText = '0');
+
+            const resultDiv = document.getElementById('resultMessage');
+            resultDiv.innerText = "";
+            resultDiv.className = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>갬블링 게임</h1>
+    <div>각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</div>
+    <hr style="border: 1; margin-bottom: 20px;">
+    <div class="number-container">
+        <span class="num-box" onclick="play(0, this)">0</span>
+        <span class="num-box" onclick="play(1, this)">0</span>
+        <span class="num-box" onclick="play(2, this)">0</span>
+    </div>
+    <div id="resultMessage" onclick="resetGame()"></div>
+</body>
+</html>
