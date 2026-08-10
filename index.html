@@ -79,14 +79,15 @@
         <section id="profile" class="pt-20 reveal">
             <div class="space-y-12">
                 <div class="space-y-8">
-                    <h2 class="text-xl md:text-2xl font-display font-semibold leading-tight whitespace-nowrap tracking-wide">
-                        안녕하세요! <span class="text-purple-400">사용자 경험과 탄탄한 DB 구조</span>를 고민하는 이가은입니다.
+                    <!-- 요청하신 소제목 반영 -->
+                    <h2 class="text-xl md:text-2xl font-display font-semibold leading-tight tracking-wide">
+                        안녕하세요! <span class="text-purple-400">사용자 중심의 Web & DB 구조</span>를 설계하는 이가은입니다.
                     </h2>
                     
+                    <!-- 요청하신 본문 반영 -->
                     <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-900/40 border border-purple-500/30 backdrop-blur-xl shadow-2xl shadow-purple-500/10">
                         <p class="text-white/90 leading-relaxed text-lg md:text-xl font-light">
-                            "Next.js 기반의 프론트엔드 인터랙션 개발과 PostgreSQL 데이터베이스 구조 설계에 깊은 관심을 가지고 있습니다.
-                            최신 AI 도구를 적극적으로 활용하여 직관적이고 완성도 높은 웹/앱 서비스를 만듭니다."
+                            "Next.js 기반의 프론트엔드 인터랙션 구현부터 PostgreSQL 데이터베이스 설계까지, 서비스의 시작과 끝을 책임집니다. 최신 AI 생성 도구(Vibe Coding)를 적극 활용하여 아이디어를 신속하게 완성도 높은 웹서비스로 실현합니다."
                         </p>
                     </div>
                 </div>
@@ -210,7 +211,6 @@
                         <i data-lucide="file-check" class="w-5 h-5"></i> Certifications & Education
                     </h3>
                     <div class="space-y-4">
-                        <!-- AI 부트캠프 수료 이력 추가 -->
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex justify-between items-center group">
                             <div>
                                 <p class="font-medium">한라대학교 AI 부트캠프 수료</p>
@@ -222,9 +222,12 @@
                             <p class="font-medium">소프트웨어교육지도사 1급</p>
                             <span class="text-[10px] px-2 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 font-bold uppercase shrink-0">Certified</span>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex justify-between items-center">
-                            <p class="font-medium">정보처리기사</p>
-                            <span class="text-[10px] px-2 py-1 rounded bg-white/10 text-white/50 border border-white/5 font-bold uppercase shrink-0">Preparing</span>
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex justify-between items-center group">
+                            <div>
+                                <p class="font-medium">정보처리기사</p>
+                                <p class="text-xs text-purple-300/70 mt-1">필기 합격 / 실기 시험 응시 준비 중</p>
+                            </div>
+                            <span class="text-[10px] px-2 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 font-bold uppercase shrink-0">In Progress</span>
                         </div>
                     </div>
                 </div>
@@ -250,7 +253,7 @@
             { name: "Python", icon: "code" },
         ];
 
-        // Projects Data (AI 부트캠프 및 2학기 전공 연계 프로젝트 추가)
+        // Projects Data
         const projects = [
             {
                 title: "Clotho's Thread (졸업작품 캡스톤)",
